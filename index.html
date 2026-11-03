@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>May Fern Goh</title>
+<meta name="description" content="May Fern Goh, Senior Principal Data Scientist in Penang, Malaysia.">
+<meta name="theme-color" content="#18241D" id="theme-color">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="May Fern Goh · Senior Principal Data Scientist">
+<meta property="og:description" content="AI/ML engineer in Penang: LLM agents, RAG, computer vision and MLOps. Also runs Areca Hoppers Dance Academy.">
+<meta property="og:url" content="https://kxtan.github.io/mfgoh-githubpages/">
+<script>
+(function () {
+    var t = null;
+    try { t = localStorage.getItem('theme'); } catch (e) {}
+    if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.classList.add('js');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&family=Caveat:wght@500;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#top">Skip to content</a>
+<header class="topbar">
+    <div class="topbar-inner">
+        <a class="brand" href="#top">may<span>fern</span></a>
+        <nav aria-label="Sections">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#dance" class="nav-link">Dance</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch between night and day">Lamp</button>
+    </div>
+</header>
+
+<div class="layout">
+    <aside>
+        <div class="scene-wrap">
+            <svg class="scene" viewBox="0 0 300 340" role="img" aria-label="A cosy desk at night: a window with the moon, a desk lamp, a mug of tea, books, and a smiling potted fern that grows a new frond for each section">
+                <defs>
+                    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop class="sky-a" offset="0"/><stop class="sky-b" offset="1"/></linearGradient>
+                    <radialGradient id="glowg"><stop class="glow-a" offset="0"/><stop class="glow-b" offset="1"/></radialGradient>
+                </defs>
+                <!-- window -->
+                <rect x="24" y="16" width="150" height="120" rx="6" fill="url(#sky)"/>
+                <circle class="moon" cx="140" cy="46" r="13"/>
+                <g class="stars"><circle cx="48" cy="34" r="1.4"/><circle cx="76" cy="58" r="1.1"/><circle cx="104" cy="28" r="1.3"/><circle cx="60" cy="98" r="1.1"/><circle cx="156" cy="96" r="1.2"/><circle cx="120" cy="80" r="1"/></g>
+                <line class="bar" x1="99" y1="16" x2="99" y2="136"/><line class="bar" x1="24" y1="76" x2="174" y2="76"/>
+                <rect class="frame" x="24" y="16" width="150" height="120" rx="6"/>
+                <!-- lamp glow -->
+                <circle class="glow" cx="212" cy="168" r="150" fill="url(#glowg)"/>
+                <!-- books -->
+                <rect class="book1" x="14" y="282" width="52" height="18" rx="2"/>
+                <rect class="book2" x="20" y="266" width="44" height="16" rx="2"/>
+                <rect class="book3" x="16" y="252" width="40" height="14" rx="2"/>
+                <!-- fern (fronds drawn by script) -->
+                <g id="fern"></g>
+                <!-- pot -->
+                <path class="pot" d="M78 252 L142 252 L134 300 L86 300 Z"/>
+                <rect class="pot-d" x="72" y="244" width="76" height="12" rx="4"/>
+                <ellipse class="soil" cx="110" cy="246" rx="32" ry="3.5"/>
+                <circle class="pot-face" cx="100" cy="272" r="2.4"/><circle class="pot-face" cx="120" cy="272" r="2.4"/>
+                <path class="pot-smile" d="M105 278 Q110 283 115 278"/>
+                <ellipse class="pot-cheek" cx="93" cy="279" rx="4" ry="2.2"/><ellipse class="pot-cheek" cx="127" cy="279" rx="4" ry="2.2"/>
+                <!-- mug -->
+                <path class="steam" d="M182 266 q-5 -8 0 -14 q5 -6 0 -12"/>
+                <path class="steam b" d="M190 266 q-5 -8 0 -14 q5 -6 0 -12"/>
+                <path class="mug-h" d="M198 280 q10 0 10 8 q0 8 -10 8"/>
+                <rect class="mug" x="172" y="272" width="28" height="28" rx="5"/>
+                <ellipse class="tea" cx="186" cy="274" rx="12" ry="2.5"/>
+                <!-- lamp (click to toggle day / night) -->
+                <g class="lamp-btn" id="lamp"><title>Pull the chain to switch between night and day</title>
+                    <ellipse class="lamp-part" cx="256" cy="297" rx="26" ry="6"/>
+                    <path class="lamp-arm" d="M256 296 L268 206 L234 140"/>
+                    <circle class="lamp-part" cx="268" cy="206" r="5"/>
+                    <path class="lamp-part shade" d="M226 120 L252 136 L240 162 L202 142 Z"/>
+                    <circle class="bulb" cx="218" cy="156" r="6"/>
+                    <line class="chain" x1="244" y1="156" x2="248" y2="184"/>
+                    <circle class="chain-knob" cx="248" cy="187" r="3.5"/>
+                </g>
+                <!-- dust motes in the lamplight -->
+                <circle class="mote" cx="200" cy="200" r="1.6"/>
+                <circle class="mote" cx="226" cy="228" r="1.3" style="animation-delay:2.3s"/>
+                <circle class="mote" cx="180" cy="236" r="1.2" style="animation-delay:4.6s"/>
+                <!-- desk -->
+                <rect class="desk" x="0" y="300" width="300" height="12" rx="2"/>
+                <rect class="desk-d" x="0" y="312" width="300" height="28"/>
+            </svg>
+            <p class="scene-cap">fronds unfurled: <b id="frond-count">0</b> / 8</p>
+        </div>
+    </aside>
+
+    <main id="top">
+        <section class="hero" data-frond>
+            <p class="eyebrow">hello, I'm</p>
+            <h1>May <em>Fern</em> Goh</h1>
+            <p class="role">Senior Principal Data Scientist at Enovix · Penang, Malaysia</p>
+            <p class="lede">I take machine learning from research to production. Right now that means LLM agents and RAG search over thousands of engineering documents, and computer vision that catches defects in battery manufacturing.</p>
+            <div class="cta">
+                <a class="btn primary" href="mailto:mayferngoh@gmail.com">Get in touch</a>
+                <a class="btn" href="resume.pdf" target="_blank" rel="noopener noreferrer">Résumé (PDF)</a>
+                <a class="btn" href="https://linkedin.com/in/mayferngoh" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            </div>
+        </section>
+
+        <section id="about" class="section reveal" data-frond>
+            <h2>About <span class="hand">a little about me</span></h2>
+            <div class="prose">
+                <p>I'm an AI/ML engineer with seven years in manufacturing and tech, at Jabil, Plexus, Intel and now Enovix. My work sits where models meet the factory floor: anomaly detection, forecasting, computer vision and, more recently, enterprise generative AI.</p>
+                <p>I also build the software around the model. With a background in MLOps and full-stack development (Angular, .NET), I can own a solution end to end, from data to deployment to the people who use it.</p>
+                <p>From 2024 to 2025 I also lectured part-time at TAR UMT, my alma mater, teaching Python, Java, UI/UX and the software development lifecycle.</p>
+            </div>
+        </section>
+
+        <section id="work" class="section reveal" data-frond>
+            <h2>Selected work <span class="hand">things I've grown</span></h2>
+            <div class="cards">
+                <article class="card"><p class="tag">GenAI · Enovix</p><h3>Enterprise AI agents</h3><p>SPEC/MEMO and Document Control agents built with LLMs, RAG and vector search. Engineers find answers across 10,000+ technical documents in under a minute.</p><ul class="chips"><li>LLMs</li><li>RAG</li><li>Azure AI Search</li></ul></article>
+                <article class="card"><p class="tag">Computer vision · Enovix</p><h3>C2A misalignment detection</h3><p>Detects battery electrode misalignment from laser line-scan data with machine learning and template matching, plus a review app so engineers can validate in shadow mode.</p><ul class="chips"><li>ML</li><li>Template matching</li></ul></article>
+                <article class="card"><p class="tag">MLOps · Intel</p><h3>End-to-end MLOps framework</h3><p>CI/CD, monitoring and automated deployment that became the team standard, with an Angular/.NET platform for deploying and monitoring models.</p><ul class="chips"><li>CI/CD</li><li>Monitoring</li></ul></article>
+                <article class="card"><p class="tag">AI governance · Enovix</p><h3>Company-wide AI platforms</h3><p>Helps administer Claude Enterprise, ChatGPT Enterprise and GitHub Copilot, covering access control (SCIM) and budget caps.</p><ul class="chips"><li>Access control</li><li>Adoption</li></ul></article>
+            </div>
+        </section>
+
+        <section id="dance" class="section reveal" data-frond>
+            <h2>Off the clock <span class="hand">where I dance</span></h2>
+            <div class="dance">
+                <p class="tag">Areca Hoppers Dance Academy · Sungai Ara, Penang</p>
+                <h3>I run a street dance studio</h3>
+                <p>Outside data science, I run Areca Hoppers, a street dance academy in Sungai Ara. We teach breaking, hip hop, choreography and K-pop to dancers from four years old up to adults, with ten instructors and nineteen classes a week. I also teach Mini Mover, the Sunday morning class for our youngest dancers.</p>
+                <p>Next up is <b>Concert 26</b> on Saturday 12 December 2026 at Aik Hua Performance Hall, with 150+ dancers on one stage.</p>
+                <ul class="chips"><li>Breaking</li><li>Hip hop</li><li>Choreography</li><li>K-pop</li></ul>
+                <div class="cta"><a class="btn primary" href="https://arecahoppers.netlify.app" target="_blank" rel="noopener noreferrer">Visit Areca Hoppers ↗</a><a class="btn" href="https://www.instagram.com/arecahoppersdc/" target="_blank" rel="noopener noreferrer">@arecahoppersdc</a></div>
+            </div>
+        </section>
+
+        <section id="experience" class="section reveal" data-frond>
+            <h2>Experience <span class="hand">the journey so far</span></h2>
+            <ol class="timeline">
+                <li><p class="when">Jul 2025 – now</p><div class="what"><h3>Senior Principal Data Scientist</h3><p class="org">Enovix Corporation</p><ul><li>Built enterprise AI agents (SPEC/MEMO, Document Control) using LLMs, RAG and vector search.</li><li>Work on C2A electrode misalignment detection on laser line-scan data.</li><li>Help administer Claude Enterprise, ChatGPT Enterprise and GitHub Copilot company-wide.</li></ul></div></li>
+                <li><p class="when">Jul 2024 – Jun 2025</p><div class="what"><h3>Lecturer (Part-time)</h3><p class="org">Tunku Abdul Rahman University of Management &amp; Technology</p><ul><li>Taught Python, Java, UI/UX and SDLC to 130 students per semester.</li><li>Mentored student teams deploying web apps with machine learning use cases.</li></ul></div></li>
+                <li><p class="when">Apr 2022 – Jun 2024</p><div class="what"><h3>Machine Learning Engineer</h3><p class="org">Intel Corporation, Penang</p><ul><li>Built an MLOps framework that became the team standard, enabling deployments within 3 hours.</li><li>Developed anomaly detection for collateral life assessment and predictive models for new-part values.</li><li>Delivered a production Angular/.NET platform for deploying and monitoring models.</li></ul></div></li>
+                <li><p class="when">Sep 2019 – Apr 2022</p><div class="what"><h3>System Software Developer</h3><p class="org">Plexus Corp.</p><ul><li>Prototyped OCR, licence plate recognition, template matching and A* indoor navigation.</li><li>Built the front end of an internal procurement system adopted by engineering teams.</li></ul></div></li>
+                <li><p class="when">Feb 2019 – Jun 2019</p><div class="what"><h3>Data Scientist (Intern)</h3><p class="org">Jabil</p><ul><li>Drafted a data ethics guideline and used NLP to classify incident ticket urgency.</li></ul></div></li>
+            </ol>
+        </section>
+
+        <section id="skills" class="section reveal" data-frond>
+            <h2>Skills <span class="hand">my toolkit</span></h2>
+            <div class="skills">
+                <div><h3>GenAI &amp; LLMs</h3><p>RAG, vector search, agent workflows, prompt engineering, MCP, model evaluation</p></div>
+                <div><h3>Machine learning</h3><p>Deep learning, NLP, computer vision, template matching, anomaly detection</p></div>
+                <div><h3>MLOps</h3><p>CI/CD, model monitoring, Dev/Test/Prod management</p></div>
+                <div><h3>Cloud &amp; languages</h3><p>Azure (Blob Storage, AI Search), Python</p></div>
+                <div><h3>Full-stack</h3><p>Angular, .NET, Java, JavaScript, UI/UX</p></div>
+                <div><h3>AI governance</h3><p>Enterprise AI platform administration, access control (SCIM)</p></div>
+            </div>
+        </section>
+
+        <section id="education" class="section reveal" data-frond>
+            <h2>Education <span class="hand">roots</span></h2>
+            <div class="edu-item"><p class="when">2017 – 2019</p><h3>Bachelor in Mathematics with Computing</h3><p class="org">TAR UMT · Graduated with Distinction</p><p>Final year project: SVD for a recommendation system on a 1M × 7,000 dataset.</p></div>
+            <div class="edu-item"><p class="when">2015 – 2017</p><h3>President, Computer Science Society</h3><p class="org">TAR UC</p><p>Led coding competitions, a leadership camp and an Industry 4.0 talk.</p></div>
+            <div class="edu-item"><p class="when">Certification</p><h3>Neural Networks and Deep Learning</h3><p class="org">DeepLearning.AI</p></div>
+        </section>
+
+        <section id="contact" class="section reveal" data-frond>
+            <h2>Contact <span class="hand">say hi</span></h2>
+            <div class="letter">
+                <p>Always happy to chat about applied AI in manufacturing, enterprise GenAI and MLOps. Pour a cup of tea and drop me a note.</p>
+                <p>Email: <a href="mailto:mayferngoh@gmail.com">mayferngoh@gmail.com</a><br>LinkedIn: <a href="https://linkedin.com/in/mayferngoh" target="_blank" rel="noopener noreferrer">linkedin.com/in/mayferngoh</a></p>
+                <p class="sig">May Fern</p>
+            </div>
+        </section>
+
+        <footer>© <span id="year">2026</span> May Fern Goh · grown slowly in Penang</footer>
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
