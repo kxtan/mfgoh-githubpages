@@ -9,7 +9,8 @@ Theme: a late-night study corner. A potted fern on the desk unfurls one frond fo
 - `index.html`: the whole site, including the inline desk scene
 - `styles.css`: theme with night (default) and day tokens
 - `script.js`: draws the fern fronds, grows them on scroll, lamp/theme toggle, active nav link
-- `favicon.svg`, `resume.pdf`
+- `favicon.svg` (smiling fern pot), `favicon.ico` (fallback for older browsers), `apple-touch-icon.png` (iPhone/iPad home screen)
+- `resume.pdf`
 
 ## To keep up to date
 
